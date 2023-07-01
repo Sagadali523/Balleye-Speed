@@ -28,23 +28,24 @@
       }
 
       download.onerror = function (err, msg) {
-        alert("Invalid image, or error downloading");
+        alert("Cannot connect to the Balleye Company server due to the connection problem. Please try again later");
       }
 
       startTime = (new Date()).getTime();
       var cacheBuster = "?nnn=" + startTime;
-      download.src = "https://ia801809.us.archive.org/17/items/Nova_HitmanBMUSA/Hitman%20-%20Blood%20Money%20%28USA%29/IMG_20210101_0001.jpg" + cacheBuster;
+      download.src = "https://ia801402.us.archive.org/0/items/Nova_Cyclemania_USA/Cyclemania%20%28USA%29/2%20%281%29.jpg" + cacheBuster;
 
       // Function to display the results
       function showResults() {
         var duration = (endTime - startTime) / 1000;
-        var bitsLoaded = 100000 * 8; // Assume the image size is 100KB
+        var bitsLoaded = 100000 * 8; // Assume the image size is 100KB or 100MB
         var speedBps = (bitsLoaded / duration).toFixed(2);
         var speedKbps = (speedBps / 1024).toFixed(2);
         var speedMbps = (speedKbps / 1024).toFixed(2);
 
-        document.getElementById("status").innerHTML = "Speed Test Complete";
+        document.getElementById("status").innerHTML = "Speed Test Complete!";
         document.getElementById("download").innerHTML += speedMbps + " Mbps";
+        document.getElementById("upload").innerHTML += speedMbps + " Mbps";
       }
     }
 
@@ -53,7 +54,7 @@
   </script>
 
     <p align="center">
-        Balleye Speed 2022 ©<br />
+        Balleye Speed 2022-2023 ©<br />
         All rights reversed</p>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8273279035901625"
      crossorigin="anonymous"></script>
