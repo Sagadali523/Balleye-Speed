@@ -11,8 +11,47 @@
         <img alt="Logo" class="style1" src="Images/Balleye_Speed_logo.png" /></p>
     <p align="center">
         Hello and welcome to Balleye Speed! Balleye Speed is a internet speed test 
-        website that can test your network speed (note: I am working on a way to make 
-        this but it may takes much longer)</p>
+        website that can test your network speed</p>
+    <h1>Internet Speed Test</h1>
+  <p id="status">Testing...</p>
+  <p id="download">Download Speed: </p>
+  <p id="upload">Upload Speed: </p>
+
+  <script>
+    // Function to measure internet speed
+    function measureSpeed() {
+      var startTime, endTime;
+      var download = new Image();
+      download.onload = function () {
+        endTime = (new Date()).getTime();
+        showResults();
+      }
+
+      download.onerror = function (err, msg) {
+        alert("Invalid image, or error downloading");
+      }
+
+      startTime = (new Date()).getTime();
+      var cacheBuster = "?nnn=" + startTime;
+      download.src = "https://example.com/image.jpg" + cacheBuster;
+
+      // Function to display the results
+      function showResults() {
+        var duration = (endTime - startTime) / 1000;
+        var bitsLoaded = 100000 * 8; // Assume the image size is 100KB
+        var speedBps = (bitsLoaded / duration).toFixed(2);
+        var speedKbps = (speedBps / 1024).toFixed(2);
+        var speedMbps = (speedKbps / 1024).toFixed(2);
+
+        document.getElementById("status").innerHTML = "Speed Test Complete";
+        document.getElementById("download").innerHTML += speedMbps + " Mbps";
+      }
+    }
+
+    // Call the measureSpeed function when the page finishes loading
+    window.onload = measureSpeed;
+  </script>
+
     <p align="center">
         Balleye Speed 2022 ©<br />
         All rights reversed</p>
